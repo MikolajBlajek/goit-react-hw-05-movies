@@ -5,19 +5,23 @@ import { PageContainer, ContentList, ContentItem } from './StyledComponents';
 
 import styled from 'styled-components';
 
-
-
 const ActorImage = styled.img`
-  width: 50px;
+  width: 100px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 20%;
   margin-right: 10px;
 `;
 
 const ActorName = styled.span`
-  color: #fff;
+  color: black;
+  font-weight: bold;
 `;
 
+const ActorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+`;
 
 export default function Cast() {
   const { movieId } = useParams();
@@ -41,8 +45,17 @@ export default function Cast() {
       <ContentList>
         {cast.map(actor => (
           <ContentItem key={actor.id}>
-            <ActorImage src={actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` : 'placeholder_image_url_here'} alt={actor.name} />
-            <ActorName>{actor.name}</ActorName>
+            <ActorContainer>
+              <ActorImage
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                    : 'placeholder_image_url_here'
+                }
+                alt={actor.name}
+              />
+              <ActorName>{actor.name}</ActorName>
+            </ActorContainer>
           </ContentItem>
         ))}
       </ContentList>

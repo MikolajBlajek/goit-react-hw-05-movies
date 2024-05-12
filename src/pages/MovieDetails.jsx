@@ -29,8 +29,8 @@ export default function MovieDetails() {
           <p>{movie.overview}</p>
           <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
           <p>Genres: {movie.genres.map(genre => genre.name).join(', ')}</p>
-          <Link to="cast">Show Cast</Link>
-          <Link to="reviews">Show Reviews</Link>
+          <Link to="cast" style={{ marginRight: '20px' }}>Show Cast</Link>
+          <Link to="reviews" style={{ marginLeft: '20px' }}>Show Reviews</Link>
           <Outlet />
         </>
       )}
