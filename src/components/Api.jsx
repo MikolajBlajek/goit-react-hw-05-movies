@@ -46,13 +46,14 @@ export async function fetchMovieCredits(movieId) {
   } catch (error) {
     console.error('Error fetching movie credits:', error);
     throw error;
-  }
+  } 
 }
 
 
 export async function fetchMovieReviews(movieId) {
   try {
-    const response = await axios.get(`/movie/${movieId}/reviews`);
+    const response = await axios.get(`/movie/${movieId}/reviews`); 
+    console.log(response);
     return response.data.results;
   } catch (error) {
     console.error('Error fetching movie reviews:', error);
